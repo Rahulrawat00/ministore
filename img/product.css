@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div#navbarNavDropdown {
+    margin-left: 602px;
+}
+.divider {
+    border: 1px solid black;
+    height: 26px;
+    width: auto;
+}
+.ratings-box {
+    padding-right: 9px;
+}
+.ratings-box {
+    padding-right: 9px;
+}
+i.fa-solid.fa-star.review-stars {
+    color: goldenrod;
+}  
+i.fa-solid.fa-star-half-stroke.review-stars {
+    color: goldenrod;
+}  
+p.total-ratings a {
+    text-decoration: none;
+    color: blue;
+}
+.search-page a {
+    padding-left: 6px;
+    text-decoration: none;
+    color: blue;
+}
+.ratings-box a:hover {
+    color: goldenrod;
+    /* font-size: 17px; */
+    transition: all 0.1s ease-in-out;
+}           
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    margin-top: 60px;
+}
+.list{
+    transform-style:preserve-3d ;
+    transform: perspective(1000px);
+}
+
+.item{
+    transition: .5s;
+    filter: brightness(1);
+
+}
+
+.item:hover{
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+.item:hover + .item{
+    filter: brightness(0.6);
+    transform: translateZ(150px)rotateY(40deg);
+}
+ .item:hover + * + *{
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(20deg);
+}
+ .item:hover + * + * + * {
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(10deg);
+}
+ .item:has(+ *:hover){
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(-40deg);
+}
+.item:has(+ * + * :hover){
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(-20deg);
+}
+
+.list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img.image-fluid.hover-img {
+    height: 354px;
+    width: auto;
+}
+h4.text-dark.text-uppercase.display-7 {
+    margin-top: 33px;
+}
+.buy-bt {
+    width: 200px;
+    background: none;
+    color: black;
+  
+    font-weight: 500;
+    font-size: 15px;
+}
+.add-to-cart {
+    font-size: 15px;
+    background: none;
+    color: black; 
+     transition: all 0.1s ease;
+}

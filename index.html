@@ -3,122 +3,849 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Modal</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .modal-content {
-            max-width: 400px;
-            margin: auto;
-            border-radius: 10px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .modal-header {
-            border-bottom: none;
-            justify-content: center;
-        }
-
-        .modal-body {
-            text-align: center;
-        }
-
-        .modal-body .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-
-        .modal-body .form-control {
-            border-radius: 30px;
-        }
-
-        .modal-body .btn-login {
-            background-color: #000;
-            color: #fff;
-            border-radius: 30px;
-        }
-
-        .modal-body .social-icons i {
-            font-size: 1.5rem;
-            margin: 0 10px;
-            color: #666;
-            cursor: pointer;
-        }
-
-        .modal-body .social-icons i:hover {
-            color: #000;
-        }
-
-        .modal-footer {
-            text-align: center;
-            border-top: none;
-        }
-
-        .modal-footer a {
-            color: #e74c3c;
-            text-decoration: none;
-        }
-
-        .modal-footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="img/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+    <title>ministore</title>
 </head>
-<body>
+<body class="dark-mode">
+    <section class="position-relative overflow-hidden  bg-light-blue">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand  " href="#"><img src="img/main-logo.png" alt="brand logo"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse nav-list" id="navbarNavDropdown">
+            <ul class="navbar-nav text-uppercase justify-content-between align-items-center flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">watches</a>
+              </li>
+              <li class="nav-item"> 
+                <a class="nav-link" href="#">sale</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">blog</a>
+              </li>
+            
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Pages
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link ">
+                  <i class="fa-solid fa-magnifying-glass nav-icon text-dark"></i>
+              </a>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#loginModal">
+                  <i class="fa-solid fa-user text-dark"></i>
+              </button>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-dark">
+                  <i class="fa-solid fa-cart-shopping nav-icon text-dark"></i>
+              </a>
+              </li>
+              <li>
+                <div class="toggle-btn">
+                  <input type="checkbox" id="checkbox">
+                  <label for="checkbox" class="toggle-label">
+                    <span class="toggle-ball"></span>
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+            
+      </nav>
 
-<!-- Trigger Modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-    Open Login Modal
-</button>
+          
+        
+    
+  
+          <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner ">
+                  
+                  <div class="carousel-item active bg-light-blue">
+                      <div class="container">
+                          <div class="row align-items-center">
+                              
+                              <div class="col-md-6 text-center text-md-start">
+                                  <h1 class=" display-2 text-uppercase space text-dark pb-5">Your Products Are Great.</h1>
+                                  <a href="#" class="btn btn-dark btn-lg btn-custom rounded-0">Shop Product</a>
+                              </div>
+                              
+                              <div class="col-md-6 text-center">
+                                  <div class="carousel-image">
+                                      <img src="img/banner-image.png" alt="Smartwatch">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                 
+                  <div class="carousel-item">
+                      <div class="container">
+                          <div class="row align-items-center">
+                              
+                              <div class="col-md-6 text-center text-md-start">
+                                  <h1 class=" display-2 text-uppercase space text-dark pb-5">technology hack you won't get</h1>
+                                  <a href="#" class="btn btn-dark btn-lg btn-custom rounded-0" >Explore More</a>
+                              </div>
+                              
+                              <div class="col-md-6 text-center">
+                                  <div class="carousel-image">
+                                      <img src="img/banner-image.png" alt="Smartwatch 2"">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
 
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <section id="company-services"  class="padding-large bg-services">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-3 ">
+                  <div class="icon-box d-flex card_1">
+                    <div class="icon-box-icon pe-3 pb-3">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div>
+                      <div class="icon-box-content">
+                        <h5 class="card-title text-uppercase text-dark fw-normal fs-4 ">
+                          free delivery
+                        </h3>
+                        <p >Lorem ipsum, dolor sitdebitis, vel cum. Alias.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 ">
+                  <div class="icon-box d-flex card_1">
+                    <div class="icon-box-icon pe-3 pb-3">
+                      <i class="fa-solid fa-medal" ></i>
+                    </div>
+                    <div>
+                      <div class="icon-box-content">
+                        <h5 class="card-title text-uppercase text-dark fw-normal fs-4">
+                         quality gurantee
+                        </h5>
+                        <p >Lorem ipsum, dolor sitdebitis, vel cum. Alias.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="col-md-3 ">
+                  <div class="icon-box d-flex card_1">
+                    <div class="icon-box-icon pe-3 pb-3">
+                      <i class="fa-solid fa-tag card-icons"></i>
+                    </div>
+                    <div>
+                      <div class="icon-box-content">
+                        <h5 class="card-title text-uppercase text-dark fw-normal fs-4">
+                          daily offers
+                        </h5>
+                        <p >Lorem ipsum, dolor sitdebitis, vel cum. Alias.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="col-md-3 ">
+                  <div class="icon-box d-flex card_1">
+                    <div class="icon-box-icon pe-3 pb-3">
+                      <i class="fa-solid fa-shield card-icons"></i>
+                    </div>
+                    <div>
+                      <div class="icon-box-content">
+                        <h5 class="card-title text-uppercase text-dark fw-normal fs-4">
+                          100% secure payment
+                        </h5>
+                        <p>Lorem ipsum, dolor sitdebitis, vel cum. Alias.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-                <!-- Logo -->
-                <div class="logo">D</div>
-                <!-- Heading -->
-                <h4 class="mt-3">Hello there!</h4>
-                <!-- Form -->
-                <form>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                    <div class="d-flex justify-content-between mb-3">
-                        <a href="#" class="text-muted small">Forgot your password?</a>
-                        <div>
-                            <input type="checkbox" id="remember" class="form-check-input">
-                            <label for="remember" class="form-check-label small">Remember me</label>
+            
+
+
+
+
+
+          </section>
+          <section id="mobile-products" class="product-store position-relative padding-large no-padding-top bg-light">
+            <div class="container">
+
+              <div class="row">
+                <div class="display-header d-flex  justify-content-between">
+                  <h2 class="text-uppercase text-dark display-7"> mobile products</h2>
+                  <div class="btn-right">
+                    <a href="ministore.html" class="btn btn-medium btn-normal text-uppercase">go to shop</a>
+                  </div>
+                </div>
+                 <div class="swiper product-watch-swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+                  <div class="swiper-wrapper " id="swiper-wrapper-9f11169ad5f8131b" aria-live="polite" style="transition-duration:0ms ; transform: translate(0px,0px,0px); transition-delay: 0ms;">
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1/4" style="width: 270px; margin-right: 20px;">
+                      <div class="product-card position-relative">
+                        <div class="image-holder">
+                          <img src="img/product-item1.jpg" alt="" class="img-fluid">
                         </div>
+                        <div class="cart-concern position-absolute">
+                          <div class="cart-button d-flex">
+                            <a href="#" class="btn btn-medium btn-black text-uppercase">
+                              add to cart
+                              <i class="fa-solid fa-cart-shopping"></i>
+
+                            </a>
+                          </div>
+                        </div>
+                        <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                          <h3 class="card-title text-uppercase">
+                            <a href="#">I phone10</a>
+                          </h3>
+                          <span class="item-price text-primary">$980</span>
+                        </div>
+                      </div>
                     </div>
-                    <button type="submit" class="btn btn-login w-100">LOGIN</button>
-                </form>
-                <!-- Social Media Login -->
-                <p class="mt-3 text-muted small">OR CONNECT WITH</p>
-                <div class="social-icons">
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-facebook-f"></i>
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="2/4" style="width: 270px; margin-right: 20px;">
+                      <div class="product-card position-relative">
+                        <div class="image-holder">
+                          <img src="img/product-item2.jpeg" alt="" class="img-fluid">
+                        </div>
+                        <div class="cart-concern position-absolute">
+                          <div class="cart-button d-flex">
+                            <a href="#" class="btn btn-medium btn-black text-uppercase">
+                              add to cart
+                              <i class="fa-solid fa-cart-shopping"></i>
+
+                            </a>
+                          </div>
+                        </div>
+                        <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                          <h3 class="card-title text-uppercase">
+                            <a href="#">I phone10</a>
+                          </h3>
+                          <span class="item-price text-primary">$980</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="3/4" style="width: 270px; margin-right: 20px;">
+                      <div class="product-card position-relative">
+                        <div class="image-holder">
+                          <img src="img/product-item3.jpg" alt="" class="img-fluid">
+                        </div>
+                        <div class="cart-concern position-absolute">
+                          <div class="cart-button d-flex">
+                            <a href="#" class="btn btn-medium btn-black text-uppercase">
+                              add to cart
+                              <i class="fa-solid fa-cart-shopping"></i>
+
+                            </a>
+                          </div>
+                        </div>
+                        <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                          <h3 class="card-title text-uppercase">
+                            <a href="#">I phone10</a>
+                          </h3>
+                          <span class="item-price text-primary">$980</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="4/4" style="width: 270px; margin-right: 20px;">
+                      <div class="product-card position-relative">
+                        <div class="image-holder">
+                          <img src="img/product-item4.jpg" alt="" class="img-fluid">
+                        </div>
+                        <div class="cart-concern position-absolute">
+                          <div class="cart-button d-flex">
+                            <a href="#" class="btn btn-medium btn-black text-uppercase">
+                              add to cart
+                              <i class="fa-solid fa-cart-shopping"></i>
+
+                            </a>
+                          </div>
+                        </div>
+                        <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                          <h3 class="card-title text-uppercase">
+                            <a href="#">I phone10</a>
+                          </h3>
+                          <span class="item-price text-primary">$980</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                  </div>
+                 </div>
+                </div>
+               
+              </div>
+            </div>
+
+
+
+          </section>
+          
+        <section id="smart-watches " class="product-store padding-large position-relative bg-light">
+          <div class="container">
+            <div class="row">
+              <div class="display-header d-flex justify-content-between pb-3" >
+                <h2 class="display-header text-dark text-uppercase">smart watches</h2>
+                <div class="btn-rght">
+                  <a href="index.html "  class="btn btn-normal btn-medium text-uppercase">go to shop</a>
+                </div>
+
+              </div>
+
+              <div class="swiper product-watch-swiper swiper-initialized swiper-normal swiper-backface-hidden">
+                <div class="swiper-wrapper" id="swiper-wrapper-390273d0279925fd" aria-live="polite">
+                  <div class="swiper-slide swiper-slide-active" role="group" aria-label="1/4" style="width: 270px; margin-right:20px ;">
+                    <div class="product-card position-relative">
+                      <div class="image-holder">
+                        <a href="product.html">
+                        <img src="img/watch-item1.jpg" alt="watch"  class="image-fluid"></a>
+                      </div>
+                      <div class="cart-concern position-absolute">
+                        <div class="cart-button d-flex">
+                          <a href="#" class="btn btn-medium btn-black text-uppercase add-to  ">
+                            add to cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                        <h3 class="card-title text-uppercase">
+                          <a href="#">pink watch</a>
+                        </h3>
+                        <span class="item-price text-primary">$870</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide-active" role="group" aria-label="2/4" style="width: 270px; margin-right:20px ;">
+                    <div class="product-card position-relative">
+                      <div class="image-holder">
+                        <img src="img/watch-item2.jpg" alt="watch"  class="image-fluid">
+                      </div>
+                      <div class="cart-concern position-absolute">
+                        <div class="cart-button d-flex">
+                          <a href="#" class="btn btn-medium btn-black text-uppercase">
+                            add to cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                        <h3 class="card-title text-uppercase">
+                          <a href="#">pink watch</a>
+                        </h3>
+                        <span class="item-price text-primary">$870</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide-active" role="group" aria-label="3/4" style="width: 270px; margin-right:20px ;">
+                    <div class="product-card position-relative">
+                      <div class="image-holder">
+                        <img src="img/watch-item3.jpg" alt="watch"  class="image-fluid">
+                      </div>
+                      <div class="cart-concern position-absolute">
+                        <div class="cart-button d-flex">
+                          <a href="#" class="btn btn-medium btn-black text-uppercase">
+                            add to cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                        <h3 class="card-title text-uppercase">
+                          <a href="#">pink watch</a>
+                        </h3>
+                        <span class="item-price text-primary">$870</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide-active" role="group" aria-label="4/4" style="width: 270px; margin-right:20px ;">
+                    <div class="product-card position-relative">
+                      <div class="image-holder">
+                        <img src="img/watch-item4.jpg" alt="watch"  class="image-fluid">
+                      </div>
+                      <div class="cart-concern position-absolute">
+                        <div class="cart-button d-flex">
+                          <a href="#" class="btn btn-medium btn-black text-uppercase">
+                            add to cart
+                            <i class="fa-solid fa-cart-shopping"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                        <h3 class="card-title text-uppercase">
+                          <a href="#">pink watch</a>
+                        </h3>
+                        <span class="item-price text-primary">$870</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+          
+          
+          <section id="yearly-sale" class="bg-light-blue overflow-hidden mt-5 padding-xlarge" style="background-image:url(single-image1.png); background-position: right; background-repeat: no-repeat;">
+            <div class="row d-flex flex-wrap align-items-center">
+              <div class="col-md-6 col-sm-12">
+                <div class="text-content offset-4 padding-medium">
+                  <h3>10% off</h3>
+                  <h2 class="display-2 pb-5 text-uppercase text-dark">new year sale</h2>
+                  <a href="index.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none shop-btn">shop sale</a>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12"></div>
+            </div>
+          </section>
+
+          <section id="latest-blog" class="padding-large bg-light">
+            <div class="container">
+              <div class="row">
+                <div class="display-header d-flex justify-content-between pb-3">
+                  <h2 class="display-7 text-dark text-uppercase">latest posts</h2>
+                  <div class="btn-right">
+                    <a href="index.html" class="btn btn-medium btn-normal text-uppercase" > read blog</a>
+                  </div>
+                </div>
+                <div class="post-grid d-flex flex-wrap justify-content-between">
+                  <div class="col-lg-4 col-sm-12">
+                    <div class="card border-none me-3">
+                      <div class="card-image">
+                        <img src="img/latest-item1.jpg" alt="" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="card-body text-uppercase">
+                      <div class="card-meta text-muted">
+                        <span class="meta-date">jan 1, 2025</span>
+                        <span class="meta-category">-gadgets</span>
+                      </div>
+                      <h3 class="card-title">
+                        <a href="#" class="text-dark">get some cool gadgets in 2025</a>
+
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-12">
+                    <div class="card border-none me-3">
+                      <div class="card-image">
+                        <img src="img/latest-item2.jpg" alt="" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="card-body text-uppercase">
+                      <div class="card-meta text-muted">
+                        <span class="meta-date">jan 1, 2025</span>
+                        <span class="meta-category">-technology</span>
+                      </div>
+                      <h3 class="card-title">
+                        <a href="#" class="text-dark">technology hack you won't get</a>
+
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-sm-12">
+                    <div class="card border-none me-3">
+                      <div class="card-image">
+                        <img src="img/latest-item3.jpg" alt="" class="img-fluid">
+                      </div>
+                    </div>
+                    <div class="card-body text-uppercase">
+                      <div class="card-meta text-muted">
+                        <span class="meta-date">jan 1, 2025</span>
+                        <span class="meta-category">-camera</span>
+                      </div>
+                      <h3 class="card-title">
+                        <a href="#" class="text-dark">top 10 small camera in the world</a>
+
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section id="testinomials" class="position-relative bg-light" >
+            <div class="container">
+            <div id="quatation_slides" class="carousel slide" data-bs-ride="carousel">
+
+              <div class="carousel-inner"> 
+                  <div class="carousel-item active quote-block">
+                    <div class="text-center quotation position-relative">
+                      <i class="fa-solid fa-quote-right quote-icon" style=" color: #EDF1F3;"></i>
+                    </div>
+                      <blockquote class="blockquote text-center ">
+                                    <p class="mb-4 quote-p text-dark">“Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi.”</p>
+                          <div class="reviews">
+
+
+
+
+
+                            <i class="fa-solid fa-star review-stars"></i>
+
+                            <i class="fa-solid fa-star review-stars"></i>
+
+                            <i class="fa-solid fa-star review-stars"></i>
+                            
+                            <i class="fa-solid fa-star review-stars"></i>
+                            <i class="fa-solid fa-star-half-stroke review-stars"></i> 
+                          </div>
+                          <footer class=" reviewer-name  text-uppercase text-dark">peter Drucker</footer> 
+                      </blockquote>
+                  </div>
+                  <div class="carousel-item quote-block">
+                    <div class="text-center quotation position-relative">
+                      <i class="fa-solid fa-quote-right quote-icon" style=" color: #EDF1F3;"></i>
+                    </div>
+                      <blockquote class="blockquote text-center">
+                          <p class="mb-4 quote-p text-dark">“A blog is a digital publication that can complement a website or exist independently. A blog may include articles, short posts, listicles, infographics, videos, and other digital content.”</p>
+                           <div class="reviews">
+                            <i class="fa-solid fa-star review-stars "></i>
+                            <i class="fa-solid fa-star review-stars "></i>
+                            <i class="fa-solid fa-star review-stars"></i>
+                            <i class="fa-solid fa-star review-stars"></i>
+                            <i class="fa-solid fa-star review-stars"></i>
+
+
+
+
+
+                            
+
+                          </div>
+                          <footer class="reviewer-name  text-uppercase text-dark">Winston Churchill</footer>
+                         
+                      </blockquote>
+                  </div>
+                  
+              </div>
+      
+            
+              <button class="carousel-control-prev" type="button" data-bs-target="#quoteCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+
+
+
+
+                  
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#quoteCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+          </section>
+          <section id="subscribe " class="container-grid padding-large position-relative overflow-hidden bg-light">
+            <div class="container">
+              <div class="row "> 
+                 <div class="subscribe-content  bg-dark d-flex flex-wrap justify-content-center align-items-center padding-medium">
+                  <div class="col-md-6 col-sm-12">
+                    <div class="display-header pe-3">
+                      <h2 class="display-7 text-uppercase  text-light">subscribe us now </h2>
+                      <p class="subs-p">Get latest news,updates and deals directly mailed to your inbox.</p>
+
+                    </div>
+                  </div>
+                  <div class="col-md-5 col-sm-12">
+                    <form class="subscription-from  validate">
+                       <div class="input-group flex-wrap">
+                        <input type="email" name="Email" class="form-control input-button" placeholder="your email address here">
+                        <button class="btn btn-medium btn-primary text-uppercase submit-button" type="submit" name="subscribe" fdprocessdid="tazsxa" >subscribe  </button>
+                       </div>
+                    </form>
+                  </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+          </section>
+          <section id="instagram" class="padding-large overflow-hidden no-padding-top bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="display-header text-uppercase text-dark text-center pb-3">
+                        <h2 class="display-7">shop our insta</h2>
+                    </div>
+                    <div class="d-flex flex-row flex-wrap justify-content-center instagram-gallery">
+                        <figure class="instagram-item">
+                            <a href="#" class="image-link position-relative">
+                                <img src="img/product-item1.jpg" alt="" class="img-fluid"> 
+                                <div class="icon-overlay position-absolute d-flex justify-content-center align-items-center">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                            </a>
+                        </figure>
+                        <figure class="instagram-item"style="margin-left: 23px;">
+                            <a href="#" class="image-link position-relative">
+                                <img src="img/watch-item2.jpg" alt="" class="img-fluid"> 
+                                <div class="icon-overlay position-absolute d-flex justify-content-center align-items-center">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                            </a>
+                        </figure>
+                        <figure class="instagram-item "style="margin-left: 23px;" >
+                            <a href="#" class="image-link position-relative">
+                                <img src="img/watch-item2.jpg" alt="" class="img-fluid"> 
+                                <div class="icon-overlay position-absolute d-flex justify-content-center align-items-center">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                            </a>
+                        </figure>
+                        <figure class="instagram-item" style="margin-left: 23px;">
+                            <a href="#" class="image-link position-relative">
+                                <img src="img/product-item4.jpg" alt="" class="img-fluid"> 
+                                <div class="icon-overlay position-absolute d-flex justify-content-center align-items-center">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                            </a>
+                        </figure>
+                        
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <p class="mb-0">New to Delightie? <a href="#">JOIN NOW</a></p>
+        </section>
+        
+
+
+          <footer id="footer"  class="overflow-hidden bg-light">
+            <div class="container">
+              <div class="row ">
+                  <div class="footer-top-area">
+                    <div class="row d-flex flex-wrap justify-content-between">
+                      <div class="col-lg-3 col-sm-6 pb-3" >
+                        <div class="footer-menu">
+                          <img src="img/main-logo.png" alt="logo">
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing el ! Spariatur doloremque delectus necessitatibus atque!</p>
+                          <div class="social-links ">
+                            <ul class="d-flex list-unstyled gap-5">
+                              <li>
+                                <a href="#">
+                                  <i class="fa-brands fa-facebook footer-icon"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa-brands fa-twitter footer-icon"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa-brands fa-instagram footer-icon"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i class="fa-solid fa-envelope footer-icon"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+              
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-6 pb-3">
+                        <div class="footer-menu text-uppercase">
+                          <h5 class="widget-title pb-2">
+                            Quick Links
+                          </h5>
+                          <ul class="menu-list list-unstyled text-uppercase">
+                            <li class="menu-item pb-2"><a href="#">home</a></li>
+                            <li class="menu-item pb-2"><a href="#">about</a></li>
+                            <li class="menu-item pb-2"><a href="#">shop</a></li>
+                            <li class="menu-item pb-2"><a href="#">blogs</a></li>
+                            <li class="menu-item pb-2"><a href="#">contacts</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-lg-2 col-sm-6 pb-3">
+                        <div class="footer-menu text-uppercase">
+                          <h5 class="widget-title pb-2">help & info help</h5>
+                          <ul class="menu-list list-unstyled">
+                            <li class="menu-item">
+                              <a href="#">
+                                track your order
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                               returns policies
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                shipping + delivery
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                               contact us
+                              </a>
+                            </li>
+                            <li class="menu-item">
+                              <a href="#">
+                                FAQs
+                              </a>
+                            </li>
+                          </ul>
+                        </div> 
+                      </div>
+                      <div class="col-lg-2 col-sm-6 pb-3">
+                        <div class="footer-menu contact-item">
+                          <h5 class="widget-title text-uppercase  pb-2">
+                            contact us
+                          </h5>
+                          <p>Do you have any queries or suggestions?
+                            <a href=""class="footer-details text-dark">yourinfo@gmail.com</a>
+                          </p>
+                          <p>
+                            If you need support? just give us a call. 
+                            <a href="#"class="footer-details text-dark"> +91 9815504473</a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <hr>
+          </footer>
+          <div id="footer-bottom " class="bg-light">
+            <div class="container bg-light">
+              <div class="row d-flex justify-content-between flex-wrap bg-light">
+                <div class="col-md-4 col-sm-6 ">
+                  <div class="shipping d-flex" >
+                    <p>We ship with</p>
+                    <div class="card-wrap ps-2">
+                      <img src="img/dhl.png" alt="shipment">
+                      <img src="img/shippingcard.png" alt="master card">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="payment-method d-flex">
+                    <p>Payment options:</p>
+                    <div class="card-wrap ps-2">
+                      <img src="img/visa.jpg" alt="visacard">
+                      <img src="img/mastercard.jpg" alt="mastercard">
+                      <img src="img/paypal.jpg" alt="paypal">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6 " >
+                  <div class="copyright">
+                    <p>@copyright 2025 ministore. Design by 
+                      <a href=""class="footer-details text-dark">Template jungle</a>
+                      Distribution by
+                      <a href="" class="footer-details text-dark"> Themewagon</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="logo">
+                          <img src="img/main-logo.png" alt="">
+                        </div>
+                       
+                        <h4 class="mt-3 text-light-blue text-uppercase">Hello there!</h4>
+                       
+                        <form>
+                            <div class="mb-3">
+                              <label class="text-decoration-underline" style="cursor: pointer;">Email</label>
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="mb-3">
+                              <label class="text-decoration-underline" style="cursor: pointer;">Password</label>
+                                <input type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="d-flex justify-content-between mb-3">
+                                <a href="#" class="text-muted small">Forgot your password?</a>
+                                <div>
+                                    <input type="checkbox" id="remember" class="form-check-input">
+                                    <label for="remember" class="form-check-label small">Remember me</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-login w-100">LOGIN</button>
+                        </form>
+                        
+                        <p class="mt-3 text-muted small">OR CONNECT WITH</p>
+                        <div class="social-icons">
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="mb-0">New to Delightie? <a href="#">JOIN NOW</a></p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+        
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+          
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+     
+    <script>
+      const toggle_btn = document.querySelector('#checkbox')
+      console.log(toggle_btn)
+      toggle_btn.addEventListener("change",()=>{
+        if(toggle_btn.Checked){
+          document.body.classList.add("dark-mode")
+        }
+        else{
+          document.body.classList.remove("dark-mode")
+        }
+      })
+    </script>
 </body>
 </html>
